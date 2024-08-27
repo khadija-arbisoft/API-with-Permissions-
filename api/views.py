@@ -1,12 +1,13 @@
+
 from rest_framework import viewsets
 from .models import Item, Location
 from .serializers import ItemSerializer, LocationSerializer
-from .permissions import ModelPermissionsByMethod  # Import the custom permission class
+from .permissions import ModelPermissionsByMethod
 
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    permission_classes = [ModelPermissionsByMethod]  # Apply the custom permission class
+    permission_classes = [ModelPermissionsByMethod]
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -18,4 +19,5 @@ class ItemViewSet(viewsets.ModelViewSet):
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
-    permission_classes = [ModelPermissionsByMethod]  # Apply the custom permission class
+    permission_classes = [ModelPermissionsByMethod]
+
